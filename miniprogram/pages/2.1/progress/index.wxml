@@ -1,0 +1,6 @@
+<!--miniprogram/pages/2.1/progress/index.wxml-->
+<view class="example-container">
+  <!--2 代码示例-->
+  <view class="gap">代码示例,单击模拟网络异步</view>
+  <progress show-info bindtap="onTapProgressBar" stroke-width="2" percent="{{percentValue}}" backgroundColor="#f2f2f2" active-mode="forwards" active bindactiveend="onProgressActiveEnd"></progress>
+</view>

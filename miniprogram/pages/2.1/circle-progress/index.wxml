@@ -1,0 +1,9 @@
+<!--pages/2.1/circle-progress/index.wxml-->
+<view>
+  <!--外部灰色的圆-->
+  <view>
+    <!--内部白色的圆-->
+    <view></view>
+    <canvas></canvas>
+  </view>
+</view>

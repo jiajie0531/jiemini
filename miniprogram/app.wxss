@@ -1,0 +1,15 @@
+/**app.wxss**/
+Page {
+  padding:0;
+}
+.example-container{
+  margin: 40rpx;
+  width: 670rpx;
+  height: 100%;
+}
+.gap{
+  width: 100%;
+  height: auto;
+  margin-top:50px;
+  padding: 10px 0 10px;
+}
