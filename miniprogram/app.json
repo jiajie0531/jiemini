@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/2.3/index",
     "pages/2.1/progress/index",
     "pages/2.1/icon/index",
     "pages/index/index",
