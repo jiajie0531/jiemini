@@ -13,3 +13,12 @@ Page {
   margin-top:50px;
   padding: 10px 0 10px;
 }
+
+/* --- */
+.section{
+  padding: 20px;
+}
+/* 最后一个section */
+.section:last-child{
+  padding-bottom: 100rpx;
+}
