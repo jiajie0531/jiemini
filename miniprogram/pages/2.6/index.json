@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "slide-view": "miniprogram-slide-view",
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-uploader": "weui-miniprogram/uploader/uploader",    
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "wxml-to-canvas": "wxml-to-canvas"
+  }
 }

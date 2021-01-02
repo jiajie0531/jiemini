@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/2.6/render-wxml/index",
     "pages/2.6/index",
     "pages/2.4/index",
     "pages/2.3/index",
@@ -27,9 +28,9 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2",
   "useExtendedLib": {
     "weui": true
-  }
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
 }

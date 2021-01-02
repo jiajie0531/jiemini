@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import '/style/common.wxss';
+
 Page {
   padding:0;
 }
