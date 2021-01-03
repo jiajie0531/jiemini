@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/vtabs/index",
     "pages/2.8/index",
     "pages/2.6/render-wxml/index",
     "pages/2.6/index",
