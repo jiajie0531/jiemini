@@ -1,5 +1,8 @@
 // components/region-picker-view2/index.js
 Component({
+  options:{
+    multipleSlots: false
+  },
   /**
    * Component properties
    */
@@ -11,9 +14,9 @@ Component({
    * Component initial data
    */
   data: {
-
+    visible: false
   },
-
+  ready(){},
   /**
    * Component methods
    */
