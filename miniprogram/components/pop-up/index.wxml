@@ -1,0 +1,8 @@
+<!--components/pop-up/index.wxml-->
+<view>
+  <view>
+    <view class=" q-bb {{ visible ? 'q-pp-show' : '' }}" catchtouchmove="popPreventTouchmove">
+      <slot name="content" data-type="unclose"></slot>
+    </view>
+  </view>
+</view>

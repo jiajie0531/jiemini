@@ -1,1 +1,5 @@
 /* miniprogram/pages/2.10/index.wxss */
+.picker {
+  padding: 13px;
+  background-color: #FFFFFF;
+}
