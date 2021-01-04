@@ -91,8 +91,9 @@
     <view class="page__section">
       <view class="page__section-title">两个自定义实现选择器</view>
       <!-- js滚动选择器 -->
-      <region-picker-view></region-picker-view>
+      <region-picker-view bindchange="onRegionChange"></region-picker-view>
       <!-- wxs滚动选择器-->
+      <region-picker-view2 bindchange="onRegionChange"></region-picker-view2>
     </view>
     <view class="page__section"></view>
   </view>

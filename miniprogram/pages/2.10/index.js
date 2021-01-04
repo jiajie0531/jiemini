@@ -95,6 +95,9 @@ Page({
   onShareAppMessage: function () {
 
   },
+  onRegionChange: function(e){
+    console.log('选择了', e.detail);
+  },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({
