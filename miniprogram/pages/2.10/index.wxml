@@ -1,0 +1,20 @@
+<!--miniprogram/pages/2.10/index.wxml-->
+<!-- 2.10 -->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">2.10</view>
+    <view class="page__desc">滚动选择器：如何自定义省市区多级联动选择器？</view>
+  </view>
+  <view class="page__bd">
+    <view class="section"></view>
+    <view class="section"></view>
+    <view class="section"></view>
+    <view class="section"></view>
+    <view class="section"></view>
+    <view class="page__section"></view>
+    <view class="section"></view>
+    <view class="section"></view>
+    <view class="page__section"></view>
+    <view class="page__section"></view>
+  </view>
+</view>
