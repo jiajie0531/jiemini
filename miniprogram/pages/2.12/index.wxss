@@ -1,0 +1,5 @@
+/* miniprogram/pages/2.12/index.wxss */
+.intro {
+  margin: 30px;
+  text-align: center;
+}
