@@ -5,7 +5,8 @@ Page({
    * Page initial data
    */
   data: {
-
+    loading: false,
+    active: true
   },
 
   /**

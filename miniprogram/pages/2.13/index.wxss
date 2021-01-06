@@ -1,1 +1,44 @@
 /* miniprogram/pages/2.13/index.wxss */
+page{
+  background-color: aliceblue;
+}
+.tap-banner {
+  width: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 1716930 */
+  src: url('//at.alicdn.com/t/font_1716930_0fs7vun2ngmn.eot');
+  src: url('//at.alicdn.com/t/font_1716930_0fs7vun2ngmn.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1716930_0fs7vun2ngmn.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1716930_0fs7vun2ngmn.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1716930_0fs7vun2ngmn.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1716930_0fs7vun2ngmn.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family: 'iconfont';
+}
+.icon-back::after{
+  content: '\e604';
+  font-size: 22px;
+}
+.icon-home::after{
+  content: '\e6f3';
+  font-size: 22px;
+}
+.page-navigator-bar .navigator-normal .icon-back{
+  color: white;
+}
+.page-navigator-bar .navigator-normal .icon-home{
+  color: white;
+}
+.page-navigator-bar .navigator-active .icon-back{
+  color: black;
+}
+.page-navigator-bar .navigator-active .icon-home{
+  color: black;
+}

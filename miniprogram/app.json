@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/2.13/index",
     "pages/2.12/index",
     "pages/2.10/index",
     "pages/vtabs/index",
@@ -23,8 +24,7 @@
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
     "pages/im/room/room",
-    "pages/some/index",
-    "pages/2.13/index"
+    "pages/some/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
