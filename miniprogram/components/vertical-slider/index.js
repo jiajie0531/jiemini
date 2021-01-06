@@ -47,23 +47,23 @@ Component({
   },
   observers: {
     'blockSize': function(blockSize) {
-      // 这个地方是规范blockSize的最大值，最小值
+      // 这个地方是规范blockSize的最大、最小值
       if (blockSize > 28) {
         this.setData({
           blockSize: 28
-        });
+        })
       } else if (blockSize < 12) {
         this.setData({
           blockSize: 12
-        });
+        })
       }
     },
     'showValue': function(){
-      this.queryHeight(); // 由于显示数字后，滑动区域变化，需要重新查询可滑动高度
+      this.queryHeight() // 由于显示数字后，滑动区域变化，需要重新查询可滑动高度
       // 如果被设置了，相应的observer是自动触发的
       // 因为这个组件在使用时，设置了showValue属性，所以queryHeight被调用了
       // 如果没有设置，这个函数是不会被调用的
-      console.log('showValue----', this.properties.showValue);
+      console.log('showValue----',this.properties.showValue);
     }
   },
   /**
@@ -83,10 +83,10 @@ Component({
    */
   methods: {
     // 设置当前值是多少，是加上最小值之后的当前值
-    setCurrent: function(e) {
+    setCurrent: function(e){
       this.setData({
         currentValue: e
-      });
+      })
     },
     queryHeight: function() {
       // 这个地方是为了取出滚动容器在页面中的起点，距离页面顶边的y距离是多少totalTop
@@ -98,8 +98,8 @@ Component({
         this.setData({
           totalTop: res.top,
           totalHeight: res.height
-        }).exec();
-      });
+        });
+      }).exec();
     },
     empty: function(){},
   }
