@@ -1,0 +1,16 @@
+<!--components/navigation-bar/index.wxml-->
+<view>
+  <!-- 标题栏 -->
+  <view class="{{active ? 'navigator-active' : 'navigator-normal'}}">
+    <view>
+      <slot></slot>
+    </view>
+
+    <view>
+      <view></view>
+      <block>
+        <slog name="center"></slog>
+      </block>
+    </view>
+  </view>
+</view>

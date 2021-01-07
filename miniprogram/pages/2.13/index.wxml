@@ -1,4 +1,6 @@
 <!--miniprogram/pages/2.13/index.wxml-->
+<!-- 自定义导航组件引入 -->
+<!-- 使用ext-class 重写样式 -->
 <navigation-bar 
   ext-class="page-navigator-bar"
   active="{{active}}"
@@ -7,22 +9,21 @@
     <icon bindtap="goBack" class="iconfont icon-back"></icon>
     <icon bindtap="goHome" class="iconfont icon-home"></icon>
   </view>
-  <view>
+  <view slot="center">
     <view>自定义导航标题</view>
   </view>
 </navigation-bar>
 
 <view style="width:100%;height:400px;">
 </view>
-
 <image class="tap-banner" src="https://qiniu-image.qtshe.com/1557133211411_684.jpg" mode="widthFix"></image>
 
 <!-- 自定义导航组件操作 -->
 <!-- 在这里通过绑定，嵌入了一个wxss变量 -->
-<view>
-  <button>显示/隐藏 loading</button>
+<view class="operate-wraper" style="background-color:#f2f2f2;--topBarHeight:{{topBarHeight}}px;">
+  <button bindtap="changeLoading">显示/隐藏 loading</button>
 </view>
 
-<view>
+<view wx:for="[1,2,3]" style="width:100%;height:400px;background-color:#f2f2f2;text-align:center;">
   123
 </view>
