@@ -1,0 +1,49 @@
+/* miniprogram/pages/2.14/index.wxss */
+.lazy-image{
+
+}
+
+/* 用户列表相关样式 */
+.cardbox {
+  width: 100%;
+  font-size: 0;
+  box-sizing: border-box;
+  padding: 0 32rpx;
+  display: inline-block;
+}
+.card {
+  display: inline-block;
+  float: left;
+}
+.card .image_card {
+  width: 268rpx;
+  height: 268rpx;
+  border-radius: 8rpx;
+  position: relative;
+}
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  border-radius: 8rpx;
+}
+.card .image_card .audience {
+  font-size: 22rpx;
+  color: #fff;
+  position: absolute;
+  left: 16rpx;
+  top: 16rpx;
+  z-index: 999;
+  font-weight: bold;
+}
+.card:nth-child(odd){
+	margin-right:32rpx;
+}
+.showpic {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  overflow: hidden;
+}

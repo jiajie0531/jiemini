@@ -1,0 +1,41 @@
+<!--miniprogram/pages/2.14/index.wxml-->
+<view class="page-head">
+  <text class="page-head__title">slider</text>
+  <text class="page-head__desc">滑块</text>
+</view>
+
+<view class="page-section">
+  <text class="page-section__title">use image</text>
+  <scroll-view class="cardbox">
+    <button 
+      wx:if="{{item.live.play_urls}}" 
+      class="card"
+      hover-class="none"
+      wx:for="{{content}}"
+      wx:key="*this"
+      bindtap="gotoLive"
+      data-url="{{item.live.play_urls.hdl.ORIGIN}}"
+		  data-ava="{{item.live.user_info.avatar}}"
+		  data-name="{{item.live.user_info.name}}"
+		  data-audience="{{item.live.audience_num}}"
+		  data-lid="{{item.live.id}}"
+		  data-cacheprepic="{{item.live.pic}}"
+		  data-prepic="{{item.live.pic_320}}"
+      data-share_desc="{{item.live.share_info.wechat_contact.cn.text}}"
+      style="position: relative;"
+      >
+      <view class="image_card">
+        <image class="showpic" mode="aspectFill" src="{{item.live.pic_320}}" lazy-load="{{true}}"></image>
+        <view class="cover"></view>
+        <text class="audience">{{item.live.audience_num}}观众</text>
+      </view>
+      <view>
+        <view>
+          <image></image>
+          <image></image>
+        </view>
+        <text class="user_name">{{item.live.user_info.name}}</text>
+      </view>
+    </button>
+  </scroll-view>
+</view>
