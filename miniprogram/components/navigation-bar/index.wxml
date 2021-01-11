@@ -1,14 +1,14 @@
 <!--components/navigation-bar/index.wxml-->
-<view>
+<view class="weui-navigation-bar {{ext-class}}" bindtouchstart="doubleClick">
   <!-- 标题栏 -->
-  <view class="{{active ? 'navigator-active' : 'navigator-normal'}}">
-    <view>
-      <slot></slot>
+  <view class="{{active ? 'navigator-active' : 'navigator-normal'}} weui-navigation-bar__inner {{ios ? 'ios' : 'android'}}" style="padding-top:{{statusBarHeight}}px;{{innerPaddingRight}};{{innerWidth}};">
+    <view class="weui-navigation-bar__left" style="{{leftWidth}}">
+      <slot name="left"></slot>
     </view>
 
-    <view>
-      <view></view>
-      <block>
+    <view class="weui-navigation-bar__center">
+      <view wx:if="{{loading}}" class="weui-navigation-bar__loading"></view>
+      <block wx:if="{{active}}">
         <slog name="center"></slog>
       </block>
     </view>

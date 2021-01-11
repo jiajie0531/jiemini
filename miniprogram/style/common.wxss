@@ -33,6 +33,13 @@
   color: #999999;
   margin: 40rpx 0 20rpx;
 }
+.page-section__title {
+  font-size: 28px;
+  color: #999999;
+  margin: 40rpx 0 40rpx;
+  width: 100%;
+  display: inline-block;
+}
 .section__title {
   font-size: 28rpx;
   color: #999999;
@@ -67,4 +74,21 @@
 }
 .btn-area:first-child {
   margin-top: 0;
+}
+
+/* */
+.page-head {
+  padding: 40px;
+  padding-bottom: 40px;
+}
+.page-head__title {
+  font-size: 20px;
+  font-weight: 400;
+}
+.page-head__desc {
+  color: #888888;
+  text-align: left;
+  font-size: 14px;
+  display: inline-block;
+  width: 100%;
 }
