@@ -81,5 +81,19 @@ Page({
   },
   gotoLive: function(e) {
     console.log(e);
+  },
+  gotoHome: function(e) {
+    console.log(e);
+  },
+  gotoPlayback: function(e) {
+    console.log(e);
+  },
+  previewImage: function(e) {
+    console.log(e);
+    let url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      current: url,
+      urls: [url],
+    });
   }
 })
