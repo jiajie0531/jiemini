@@ -126,3 +126,6 @@
   <text class="page-section__title">设置step</text>
   <image bindtap="previewImage" data-url="https://cdn.nlark.com/yuque/0/2020/png/1252071/1590050624644-dd5948db-22fe-48d9-af37-8a2a9f099715.png" show-menu-by-longpress="true" src="https://cdn.nlark.com/yuque/0/2020/png/1252071/1590050624644-dd5948db-22fe-48d9-af37-8a2a9f099715.png" mode="widthFit"></image>
 </view>
+
+<!-- 背景图 -->
+<view class="container"></view>
