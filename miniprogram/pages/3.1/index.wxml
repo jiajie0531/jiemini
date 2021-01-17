@@ -1,0 +1,8 @@
+<!--miniprogram/pages/3.1/index.wxml-->
+
+<view class="page-section">
+  <text class="page-section__title">3.1 接口调用及返回</text>
+  <view class="btn-area">
+    <button bindtap="startOneRequest" type="primary">发起</button>
+  </view>
+</view>
