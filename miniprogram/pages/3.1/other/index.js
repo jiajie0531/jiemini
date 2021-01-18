@@ -1,4 +1,6 @@
 // miniprogram/pages/3.1/other/index.js
+import loginWithCallback from '../../../lib/login'
+
 Page({
 
   /**
@@ -8,6 +10,9 @@ Page({
 
   },
 
+  startLoginAndRequest4: function (e) {
+    // 调用user/home接口
+  },
   /**
    * Lifecycle function--Called when page load
    */
