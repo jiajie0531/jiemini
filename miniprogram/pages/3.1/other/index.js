@@ -12,6 +12,18 @@ Page({
 
   startLoginAndRequest4: function (e) {
     // 调用user/home接口
+    const requestUserHome = (token) => {
+      wx.request({
+        url: 'http://localhost:3009/user/home',
+        header: {
+          'Authorization': `Bearer ${token}`
+        },
+      });
+    }
+
+    loginWithCallback(e, (token) => {
+      requestUserHome(token);
+    });
   },
   /**
    * Lifecycle function--Called when page load

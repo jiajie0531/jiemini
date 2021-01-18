@@ -8,7 +8,7 @@ function loginWithCallback3(e) {
 
     const app = getApp();
     try {
-      await app.wxpwx.checkSession();
+      await app.wxp.checkSession();
     } catch (err) {
       // reject(err) 这里不能reject
     }
@@ -18,7 +18,7 @@ function loginWithCallback3(e) {
         reject(err);
       });
       let code = res1.code;
-      let res = await app.wxpwx.request({
+      let res = await app.wxp.request({
         url: 'uhttp://localhost:3009/user/wexin-login2rl',
         method: 'POST',
         header: {
