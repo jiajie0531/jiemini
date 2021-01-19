@@ -18,6 +18,19 @@ Page({
         header: {
           'Authorization': `Bearer ${token}`
         },
+        success(res) {
+          if (res.errMsg === "request:ok") {
+            console.log("/user/home res", res);
+          }
+        },
+        fail(err) {
+          if (err.errMsg === "request:fail") {
+            console.log("/user/home err", err);
+          }
+        },
+        complete(resOrErr) {
+          console.log("/user/home resOrErr", resOrErr);
+        }
       });
     }
 
