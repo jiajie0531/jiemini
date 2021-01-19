@@ -3,7 +3,7 @@ import {
 } from 'miniprogram-api-promise';
 
 const wxp = {}
-promisifyAll(wx, wxp);
+promisifyAll(wx, wxp)
 
 
 export default wxp

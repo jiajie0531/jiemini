@@ -4,6 +4,7 @@ function loginWithCallback3(e) {
     let {
       userInfo,
       encryptedData,
+      iv
     } = e.detail;
 
     const app = getApp();
@@ -18,8 +19,9 @@ function loginWithCallback3(e) {
         reject(err);
       });
       let code = res1.code;
+      console.log('code is', code);
       let res = await app.wxp.request({
-        url: 'uhttp://localhost:3009/user/wexin-login2rl',
+        url: 'http://localhost:3009/user/wexin-login2',
         method: 'POST',
         header: {
           'content-type': 'application/json'
@@ -33,6 +35,7 @@ function loginWithCallback3(e) {
       }).catch(err => {
         reject(err);
       });
+      console.log('res is', res);
       token = res.data.data.authorizationToken;
       wx.setStorageSync('token', token);
     }
