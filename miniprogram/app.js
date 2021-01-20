@@ -1,4 +1,5 @@
 //app.js
+import "./lib/any"
 import wxp from './lib/wxp'
 
 App({

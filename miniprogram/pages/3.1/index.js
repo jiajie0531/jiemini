@@ -10,7 +10,124 @@ Page({
     showLoginPanel:false,
     showLoginPanel2:false
   },
+  // 3.6
+  async requestOneHomeApi(e) {
+    let res3 = await getApp().wxp.request2({
+      url: 'http://localhost:3009/user/home',
+    });
+    if (res3) {
+      console.log('res', res3);
+    }
+  },
+  // 3.5
+  startLoginAndRequestWithPromise: function(e) {
+    // 调用user/home接口
+    const requestUserHome = (token) => {
+      wx.request({
+        url: 'http://localhost:3009/user/home?name=ly',
+        header: {
+          'Authorization': `Bearer ${token}`
+        },
+        success(res) {
+          if (res.errMsg === "request:ok") console.log("/user/home res", res)
+        },
+        fail(err) {
+          if (err.errMsg === "request:fail") console.log("/user/home err", err)
+        },
+        complete(resOrErr) {
+          console.log("/user/home resOrErr", resOrErr)
+        }
+      });
+    }
 
+    loginWithCallback(e).then((token) => {
+      requestUserHome(token);
+    });
+  },
+  // 3.5 
+  async startLoginAndRequestWithPromise2(e) {
+    // 调用user/home接口
+    let token = await loginWithCallback(e);
+    let res = await getApp().wxp.request({
+      url: 'http://localhost:3009/user/home?name=ly',
+      header: {
+        'Authorization': `Bearer ${token}`
+      }
+    }).catch(err => {
+      console.log('err', err);
+    });
+    console.log('res', res);
+  },
+  // 3.5 
+  async startLoginAndRequestWithPromise3(e) {
+    // 调用user/home接口
+    let token = await loginWithCallback(e);
+    let res = await getApp().wxp.request2({
+      url: 'http://localhost:3009/user/home?name=ly'
+    });
+    console.log('res', res);
+  },
+  /**
+   * 3.4 any
+   * @param {*} e 
+   */
+  any: function(e) {
+    const app = getApp();
+    let promise1 = app.wxp.request({url: 'http://localhost:3009/'}).catch(err => {
+      console.log(err);
+      throw err;
+    });
+    let promise2 = app.wxp.request({url: 'http://localhost:3009/hi'}).catch(err => {
+      console.log(err); 
+    });
+    let promise3 = app.wxp.request({url: 'http://localhost:3009/home'}).catch(err => {
+      console.log(err); 
+    });
+    let promise = Promise.any([promise1,promise2,promise3]);
+    promise.then(res => {
+      console.log('any promise res', res);
+    },err => {
+      console.log('any promise err', err);
+    });
+  },
+  all: function(e) {
+    const app = getApp();
+    let promise1 = app.wxp.request({url: 'http://localhost:3009/'}).catch(err => {
+      console.log(err);
+      throw err;
+    });
+    let promise2 = app.wxp.request({url: 'http://localhost:3009/hi'}).catch(err => {
+      console.log(err); 
+    });
+    let promise3 = app.wxp.request({url: 'http://localhost:3009/home'}).catch(err => {
+      console.log(err); 
+    });
+    let promise = Promise.all([promise1,promise2,promise3]);
+    promise.then(res => {
+      console.log('all promise res', res);
+    },err => {
+      console.log('all promise err', err);
+    });
+  },
+  race: function(e) {
+    const app = getApp();
+    let promise1 = app.wxp.request({url: 'http://localhost:3009/'}).catch(err => {
+      console.log(err);
+      throw err;
+    });
+    let promise2 = app.wxp.request({url: 'http://localhost:3009/hi'}).catch(err => {
+      console.log(err); 
+    });
+    let promise3 = app.wxp.request({url: 'http://localhost:3009/home'}).catch(err => {
+      console.log(err); 
+    });
+    let promise = Promise.race([promise1,promise2,promise3]);
+    promise.then(res => {
+      console.log('race promise res', res);
+    },err => {
+      console.log('race promise err', err);
+    });
+  },
   /**
    * 3.1 测试一个网络请求，及返回
    */
