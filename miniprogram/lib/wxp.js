@@ -19,4 +19,55 @@ wxp.request2 = function (args) {
   });
 }
 
+// 
+wxp.request3 = function(args){
+  let token = wx.getStorageSync('token');
+  if (!token) {
+    return new Promise((resolve, reject) => {
+      let pageStack = getCurrentPages();
+      if (pageStack && pageStack.length > 0) {
+        let currentPage = pageStack[pageStack.length-1];
+        currentPage.setData({
+          showLoginPanel2:true
+        });
+        getApp().globalEvent.once("loginSuccess", ()=>{
+          wxp.request2(args).then(res=>{
+            resolve(res);
+          },err=>{
+            console.log('err', err);
+            reject(err);
+          });
+        });
+      } else {
+        reject('page valid err');
+      }
+    });
+  }
+  return wxp.request2(args);
+}
+
+wxp.request4 = function (args) {
+  let token = wx.getStorageSync('token');
+  if (!token) {
+    let pages = getCurrentPages();
+    let currentPage = pages[pages.length-1];
+    // 展示登录浮窗
+    currentPage.setData({
+      showLoginPanel: true
+    });
+    return new Promise((resolve, reject) => {
+      getApp().globalEvent.once('loginSuccess', function(e){
+        wxp.request2(args).then(function(result){
+          resolve(result);
+        }).catch(function(reason){
+          console.log('reason', reason);
+        });
+      });
+    });
+  }
+  return wxp.request2(args).catch(function (reason){
+    console.log('reason', reason);
+  });
+}
+
 export default wxp
