@@ -10,6 +10,11 @@ Page({
     showLoginPanel:false,
     showLoginPanel2:false
   },
+  showLoginPanel: function(e){
+    this.setData({
+      showLoginPanel:true
+    });
+  },
   // 3.6
   async requestOneHomeApi(e) {
     let res3 = await getApp().wxp.request2({

@@ -6,6 +6,19 @@
 </view>
 
 <view class="page-section">
+  <text class="page-section__title">3.7 接口调用融合登陆</text>
+  <view class="btn-area">
+    <button type="primary">手动开启登陆</button>
+    <button type="primary">请求user/home接口</button>
+    <button type="primary">请求接口by req4</button>
+    <view style="height:20rpx;"></view>
+    <LoginPanel show="{{showLoginPanel}}"></LoginPanel>
+    <button bindtap="showLoginPanel" type="primary">手动打开登录面板</button>
+    <LoginPanel2 show="{{showLoginPanel2}}"></LoginPanel2>
+  </view>
+</view>
+
+<view class="page-section">
   <text class="page-section__title">3.6 模块化</text>
   <view class="btn-area">
     <button bindtap="requestOneHomeApi" type="primary">请求user/home接口</button>
