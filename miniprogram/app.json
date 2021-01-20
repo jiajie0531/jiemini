@@ -29,8 +29,7 @@
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
     "pages/im/room/room",
-    "pages/some/index",
-    "components/login2/index"
+    "pages/some/index" 
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

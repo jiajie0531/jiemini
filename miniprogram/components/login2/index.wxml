@@ -1,2 +1,12 @@
 <!--miniprogram/components/login2/index.wxml-->
-<text>miniprogram/components/login2/index.wxml</text>
+<pop-up visible="{{visible}}">
+  <view slot="content">
+    <view class="picker-view">
+      <view class="picker-view__pane">
+        <text bindtap="close">取消</text>
+      </view>
+      <text>引导用户单击按钮登录：</text>
+      <button bindgetuserinfo="login" open-type="getUserInfo" type="primary">登录</button>
+    </view>
+  </view>
+</pop-up>

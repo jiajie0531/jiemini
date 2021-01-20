@@ -1,1 +1,20 @@
 /* miniprogram/components/login2/index.wxss */
+.picker-view {
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0rpx;
+  left: 0rpx;
+}
+.picker-view__pane {
+  height: 100rpx;
+  width: 100%;
+  padding: 20rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}

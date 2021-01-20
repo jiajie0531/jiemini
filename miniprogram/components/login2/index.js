@@ -1,66 +1,91 @@
-// miniprogram/components/login2/index.js
-Page({
-
+// components/login2/index.js
+Component({ 
   /**
-   * Page initial data
+   * Component properties
+   */
+  properties: {
+    show: {
+      type: Boolean,
+      value: false
+    }
+  },
+  observers: {
+    'show': function (value) {
+      console.log(value);
+
+      this.setData({
+        visible: value
+      });
+    }
+  },
+  /**
+   * Component initial data
    */
   data: {
-
+    visible: false
   },
-
   /**
-   * Lifecycle function--Called when page load
+   * Component methods
    */
-  onLoad: function (options) {
+  methods: {
+    close(e) {
+      this.setData({
+        visible: false
+      })
+    },
+    async login(e, retryNum = 0) {
+      let {
+        userInfo,
+        encryptedData,
+        iv
+      } = e.detail;
 
-  },
+      let token = null; 
+      // 本地token与微信服务器上的session要分别对待
+      let tokenIsValid = false;
+      try {
+        await getApp().wxp.checkSession();
+        let token = wx.getStorageSync('token');
+        if (token) {
+          tokenIsValid = true;
+        }
+      } catch (error) {
+      }
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
+      if (!tokenIsValid) {
+        let res1 = await getApp().wxp.login();
+        let code = res1.code;
+        console.log("code", code);
 
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+        let res = await getApp().wxpwx.request({
+          url: 'http://localhost:3009/user/wexin-login2',
+          method: 'POST',
+          header: {
+            'content-type': 'application/json' 
+          },
+          data: {
+            code,
+            userInfo,
+            encryptedData,
+            iv,
+            sessionKeyIsValid:sessionIsValid
+          }
+        });
+ 
+        console.log('登录接口请求成功', res.data);
+        token = res.data.data.authorizationToken;
+        wx.setStorageSync('token', token);
+        console.log('authorization', token);
+      }
+      
+      getApp().globalData.token = token;
+      wx.showToast({
+        title: '登录成功了',
+      });
+      this.close();
+      this.triggerEvent('loginSuccess');
+      getApp().globalEvent.emit('loginSuccess');
+    },
+    login2(e){}
   }
 })

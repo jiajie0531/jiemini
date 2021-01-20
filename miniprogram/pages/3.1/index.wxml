@@ -13,7 +13,7 @@
     <button type="primary">请求接口by req4</button>
     <view style="height:20rpx;"></view>
     <LoginPanel show="{{showLoginPanel}}"></LoginPanel>
-    <button bindtap="showLoginPanel" type="primary">手动打开登录面板</button>
+    <button bindtap="showLoginPanel2" type="primary">手动打开登录面板</button>
     <LoginPanel2 show="{{showLoginPanel2}}"></LoginPanel2>
   </view>
 </view>
