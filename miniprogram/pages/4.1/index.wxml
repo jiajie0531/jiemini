@@ -1,0 +1,4 @@
+<!--miniprogram/pages/4.1/index.wxml-->
+<text>miniprogram/pages/4.1/index.wxml</text>
+
+<van-button bindtap="onTap" type="primary">按钮</van-button>
