@@ -1,0 +1,8 @@
+<!--miniprogram/pages/category/index.wxml-->
+<mp-vtabs vtabs="{{vtabs}}" class="test" id="category-vtabs">
+  <block wx:for="{{vtabs}}" wx:key="title">
+    <mp-vtabs-content>
+      <view></view>
+    </mp-vtabs-content>
+  </block>
+</mp-vtabs>

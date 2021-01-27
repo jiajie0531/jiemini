@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/category/index",
     "pages/4.1/index",
     "pages/3.10/index1",
     "pages/3.1/index",

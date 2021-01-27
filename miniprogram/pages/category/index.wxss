@@ -1,0 +1,6 @@
+/* miniprogram/pages/category/index.wxss */
+
+page {
+  background-color: #FFFFFF;
+  height: 100%;
+}
