@@ -30,7 +30,7 @@ Page({
       if (j<3) {
         this.getGoodsListByCategory(item.id, j);
       }
-      this.getGoodsListByCategory(item.id);
+      // this.getGoodsListByCategory(item.id);
       vtabs.push({title: item.category_name, id: item.id});
     }
 
@@ -88,6 +88,27 @@ Page({
   onShareAppMessage: function () {
 
   },
+  async onTapGoods(e) {
+    wx.showLoading({
+      title: 'Loading...',
+    });
+    let goodsId = e.currentTarget.dataset.id;
+    // console.log("e.currentTarget.dataset.id is ", goodsId);
+    let goods = await wx.wxp.request({
+      url: `http://localhost:3009/goods/goods/${goodsId}`,
+    });
+    console.log(goods);
+    if (goods) {
+      goods = goods.data.data
+      wx.navigateTo({
+        url: `/pages/goods/index?goodsId=${goodsId}`,
+        success: function(res) {
+          res.eventChannel.emit('goodsData', {data: goods})
+        }
+      })
+    }
+    wx.hideLoading();
+  },
   /**
    * 重新计算高度
    * @param {*} index 
@@ -106,10 +127,11 @@ Page({
     const pageSize = 10;
     let pageIndex = 1;
     let listMap = this.data.goodsListMap[categoryId];
-    console.log(listMap);
+    // console.log(listMap);
     
     if (listMap) {
       console.log(listMap.count);
+
       // 加载完了，就不要重复加载了
       if (listMap.rows.length >= listMap.count) {
         return;
@@ -132,7 +154,8 @@ Page({
       listMap.pageIndex = pageIndex;
       listMap.count = goodsData.count;
       listMap.rows.push(...goodsData.rows);
-      console.log(listMap);
+      // console.log(listMap);
+      
       this.setData({
         [`goodsListMap[${categoryId}]`]:listMap
       });
