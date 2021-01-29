@@ -124,7 +124,7 @@ Page({
   async getGoodsListByCategory(categoryId, index, loadNextPage = false){
     console.log(categoryId, index, loadNextPage);
 
-    const pageSize = 10;
+    const pageSize = 30;
     let pageIndex = 1;
     let listMap = this.data.goodsListMap[categoryId];
     // console.log(listMap);

@@ -1,2 +1,11 @@
 <!--miniprogram/pages/goods/index.wxml-->
-<text>miniprogram/pages/goods/index.wxml</text>
+<swiper indicator-dots="true" style="height:300px;">
+</swiper>
+
+<!-- title and price -->
+<view>
+  <view>
+    <text>¥</text>
+    <text>{{goodsData.start_price}}</text>
+  </view>
+</view>
