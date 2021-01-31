@@ -95,5 +95,98 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onTapSkuTag(e){
+    // 获取设置选择的规格
+    let attrvalue = e.currentTarget.dataset.attrvalue;
+    let attrKey = e.currentTarget.dataset.attrkey;
+
+    console.log('attrvalueid', attrvalue, attrKey);
+    let selectedAttrValue = this.data.selectedAttrValue;
+    selectedAttrValue[attrKey] = attrvalue;
+    this.setData({
+      selectedAttrValue
+    });
+    // 计算价格及库存
+    let totalIdValue = 0;
+    let goodsAttrKeys = this.data.goodsSkuData.goodsAttrKeys;
+    for (let j = 0; j < goodsAttrKeys.length; j++) {
+      let attrKey = goodsAttrKeys[j].attr_key;
+      if (selectedAttrValue[attrKey]) {
+        totalIdValue += selectedAttrValue[attrKey].id
+      }
+    }
+    console.log("totalIdValue", totalIdValue);
+
+    let goodsSku = this.data.goodsSkuData.goodsSku;
+    let tempTotalIdValue = 0;
+
+    for (let j = 0; j < goodsSku.length; j++) {
+      let goodsAttrPath = goodsSku[j].goods_attr_path;
+      if (goodsAttrPath.length != goodsAttrKeys.length) {
+        break;
+      }
+      tempTotalIdValue = 0;
+      goodsAttrPath.forEach(item=>tempTotalIdValue += item);
+      console.log("temTotalIdValue",tempTotalIdValue);
+
+      if (tempTotalIdValue == totalIdValue) {
+        let selectedGoodsSku = goodsSku[j];
+        this.setData({
+          selectedGoodsSku
+        })
+        break;
+      }
+    }
+  },
+  /**
+   * 确定选择当前规格
+   */
+  onConfirmGoodsSku(){
+
+  },
+  async addToCart(e){
+    if (!this.data.selectedGoodsSkuObject.sku) {
+      wx.showModal({
+        title: '请选择商品规格',
+        showCancel: false
+      });
+      this.showSkuPanelPopup();
+      return;
+    }
+    let goods_id = this.data.goodsId;
+    let goods_sku_id = this.data.selectedGoodsSkuObject.sku.id;
+    let goods_sku_desc = this.data.selectedGoodsSkuObject.text;
+    let data = {
+      goods_id,
+      goods_sku_id,
+      goods_sku_desc
+    }
+    let res = await getApp().wxp.request4({
+      url:'http://localhost:3009/user/my/carts',
+      method:'post',
+      data
+    });
+    if (res.data.msg == 'ok') {
+      wx.showToast({
+        title: '已添加',
+      })
+    }
+  },
+  /**
+   * 显示规格面板
+   */
+  showSkuPanelPopup(){
+    this.setData({
+      showSkuPanel:true
+    });
+  },
+  /**
+   * 关闭规格面板
+   */
+  onCloseSkuPanel(){
+    this.setData({
+      showSkuPanel:false
+    });
   }
 })

@@ -1,1 +1,10 @@
 /* miniprogram/pages/goods/index.wxss */
+.buydesc .van-cell__title {
+  font-size: 13px;
+}
+.share{
+  font-size:11px;background-color:#F5F9FA;color:#767A7B;border-radius:30px;padding: 5px 10px;margin-right: -27px;width: 50px;text-align: center;float: right;
+}
+.van-popup{
+  background-color: #efefef;
+}
