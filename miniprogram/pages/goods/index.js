@@ -35,11 +35,11 @@ Page({
         goodsContentInfo
       });
     });
-    // 拉去sku规格数据
+    // 拉取sku规格数据
     let goodsSkuDataRes = await wx.wxp.request({
       url: `http://localhost:3009/goods/goods/${goodsId}/sku`,
     });
-    console.log(goodsSkuDataRes);
+    // console.log(goodsSkuDataRes);
     if (goodsSkuDataRes) {
       let goodsSkuData = goodsSkuDataRes.data.data;
       this.setData({
@@ -143,7 +143,25 @@ Page({
    * 确定选择当前规格
    */
   onConfirmGoodsSku(){
-
+    let goodsSkuData = this.data.goodsSkuData;
+    let selectedGoodsSkuObject = this.data.selectedGoodsSkuObject;
+    selectedGoodsSkuObject.sku = Object.assign({}, this.data.selectedGoodsSku);
+    selectedGoodsSkuObject.text = '';
+    for (let j = 0; j < goodsSkuData.goodsAttrKeys.length; j++) {
+      let item = goodsSkuData.goodsAttrKeys[j];
+      if (!this.data.selectedAttrValue[item.attr_key]) {
+        wx.showModal({
+          title: '没有选择全部规格',
+          showCancel:false
+        })
+        return
+      }
+      selectedGoodsSkuObject.text += this.data.selectedAttrValue[item.attr_key].attr_value + ' '
+    }
+    this.setData({
+      selectedGoodsSkuObject,
+      showSkuPanel:false
+    });
   },
   async addToCart(e){
     if (!this.data.selectedGoodsSkuObject.sku) {
@@ -187,6 +205,20 @@ Page({
   onCloseSkuPanel(){
     this.setData({
       showSkuPanel:false
+    });
+  },
+  /**
+   * 测试返回对象
+   * @param {*} e 
+   */
+  requestHomeApiByReq4(e){
+    getApp().wxp.request4({
+      url: 'http://localhost:3009/user/home',
+      onReturnObject(rtn){
+        rtn.abort()
+      }
+    }).catch(err=>{
+      console.log(err);
     });
   }
 })
