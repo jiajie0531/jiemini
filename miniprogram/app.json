@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/cart/index",
     "pages/category/index",
     "pages/4.1/index",
     "pages/3.10/index1",
@@ -36,7 +37,9 @@
     "pages/3.10/index2",
     "pages/3.10/index3",
     "pages/3.10/custom/index",
-    "pages/goods/index"
+    "pages/goods/index",
+    "pages/address-list/index",
+    "pages/confirm-order/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

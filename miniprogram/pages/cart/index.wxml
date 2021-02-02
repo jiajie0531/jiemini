@@ -1,0 +1,6 @@
+<!--miniprogram/pages/cart/index.wxml-->
+<van-cell-group>
+  <van-cell>
+    <van-button>{{editMode?'完成':'编辑'}}</van-button>
+  </van-cell>
+</van-cell-group>

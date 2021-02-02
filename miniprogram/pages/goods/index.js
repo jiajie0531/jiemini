@@ -185,6 +185,8 @@ Page({
       method:'post',
       data
     });
+    //console.log('res.data.msg', res.data.msg);
+    //console.log(res.data.msg == 'ok');
     if (res.data.msg == 'ok') {
       wx.showToast({
         title: '已添加',
