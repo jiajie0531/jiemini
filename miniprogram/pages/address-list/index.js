@@ -70,6 +70,7 @@ Page({
 
   },
   getAddressFromWeixin(e){},
+  confirm(e){},
   /**
    * 编辑回来回调这个方法
    * @param {*} address 
