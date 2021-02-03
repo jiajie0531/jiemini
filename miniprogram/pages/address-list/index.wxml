@@ -1,2 +1,20 @@
 <!--miniprogram/pages/address-list/index.wxml-->
-<text>miniprogram/pages/address-list/index.wxml</text>
+<wxs module="fn">
+  module.exports = {
+    // 将数组合并为字符串
+    join: function (arr) {
+      return arr.join('')
+    }
+  }
+</wxs>
+
+<van-cell-group>
+  <van-cell bind:click="getAddressFromWeixin" title="获取微信收获地址" is-link>
+    <van-icon slot="icon" color="green" name="chat-o" style="margin-right:10px;"  />
+  </van-cell>
+</van-cell-group>
+
+<view class="address-btns">
+  <van-button>选择</van-button>
+  <van-button custom-class="new-address" bind:click="navigateToNewAddressPage" type="primary" size="large">新增收货地址</van-button>
+</view>

@@ -1,1 +1,16 @@
 /* miniprogram/pages/address-list/index.wxss */
+
+page {
+  height: 100%;
+}
+
+.address-btns {
+  position: fixed !important;
+  width: 690rpx;
+  bottom: 0;
+  margin: 30rpx;
+}
+
+.new-address {
+  margin-top: 30rpx;
+}

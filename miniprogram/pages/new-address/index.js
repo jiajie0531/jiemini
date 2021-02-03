@@ -1,17 +1,15 @@
-// miniprogram/pages/address-list/index.js
+// miniprogram/pages/new-address/index.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    radio: 0,
-    selectedAddressId: 0,
-    addressList: [],
-    slideButtons: [{
-      type: 'warn',
-      text: '删除'
-    }]
+    id:0,
+    userName:'',
+    telNumber:'',
+    region: ['广东省', '广州市', '海珠区'],
+    detailInfo:''
   },
 
   /**
@@ -32,7 +30,16 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    let opener = this.getOpenerEventChannel();
+    opener.on("editAddress", address => {
+      this.setData({
+        userName:address.userName,
+        telNumber:address.telNumber,
+        detailInfo:address.detailInfo,
+        region:address.region,
+        id:address.id
+      });
+    });
   },
 
   /**
@@ -69,21 +76,10 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getAddressFromWeixin(e){},
-  /**
-   * 编辑回来回调这个方法
-   * @param {*} address 
-   */
-  onSavedAddress(address){
-    console.log(address);
-  },
-  navigateToNewAddressPage(e){
-    console.log(e);
-    wx.navigateTo({
-      url: '/pages/new-address/index',
-      success:(res)=>{
-        res.eventChannel.on("savedNewAddress", this.onSavedAddress)
-      }
+  async save(e){},
+  bindRegionChange: function (e) {
+    this.setData({
+      region: e.detail.value
     });
   }
 })

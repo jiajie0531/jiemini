@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/address-list/index",
+    "pages/new-address/index",
     "pages/cart/index",
     "pages/category/index",
     "pages/4.1/index",
@@ -38,7 +40,6 @@
     "pages/3.10/index3",
     "pages/3.10/custom/index",
     "pages/goods/index",
-    "pages/address-list/index",
     "pages/confirm-order/index"
   ],
   "window": {

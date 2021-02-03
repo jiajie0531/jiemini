@@ -1,7 +1,7 @@
 //app.js
 import "./lib/any"
-import Event from './lib/event2'
 import wxp from './lib/wxp'
+import Event from './lib/event2'
 
 App({
   wxp: (wx.wxp = wxp),
